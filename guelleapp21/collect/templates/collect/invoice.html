@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <title>gapp_{{ pdfdata.datum_von|date:"d-m-Y" }}_{{ pdfdata.id}}</title>
+        
+        <style type="text/css">
+            body {
+                font-weight: 200;
+                font-size: 14px;
+            }
+            .header {
+                font-size: 20px;
+                font-weight: 100;
+                text-align: center;
+                color: #000000;
+            }
+            .title {
+                font-size: 22px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 0px 20px 0px 20px; 
+               margin: 0px 0px 0px 0px ; 
+            }
+            .title2 {
+                font-size: 12px;
+                font-weight: 100;
+               /* text-align: right;*/
+               padding: 0px 20px 0px 20px;  
+               margin: 0px 0px 0px 0px ; 
+
+            }
+            .title span {
+                color: #000;
+            }
+
+            .ges_npk  {
+                color: rgb(0, 0, 0);
+                font-size: 18px;
+                font-weight: 700;
+                padding: 0px 0px 0px 20px;
+                list-style: none;
+
+            }
+            .details {
+                padding: 10px 20px 0px 20px;
+                text-align: left !important;
+                /*margin-left: 40%;*/
+            }
+            .ges_details {
+                padding: 0px 20px 0px 20px;
+                text-align: left !important;
+
+                /*margin-left: 40%;*/
+            }
+            .details p {
+                padding: 0px 0px 0px 20px;
+
+            }
+            .date {
+                padding: 10px 20px 0px 20px;
+                text-align: right !important;
+                /*margin-left: 40%;*/
+            }
+            .hrItem {
+                border: none;
+                height: 1px;
+                /* Set the hr color */
+                color: #333; /* old IE */
+                background-color: #fff; /* Modern Browsers */
+            }
+            .menge  {
+                color: #000;
+                font-size: 22px;
+                font-weight: 700;
+                padding: 0px 0px 20px 20px;
+                list-style: none;
+
+            }
+            .footer {
+
+                padding-top: 300px;
+                text-align: center;
+
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class='wrapper'>
+            <div class='header'>
+                <p class='title'>Aufzeichnung nach §3 der Verordnung über das Inverkehrbringen und Befördern von Wirtschaftsdüngern </p>
+                <span class='title2'>Wirtschaftsdünger (Gülle, Gärrest, Mist)</span>
+            </div>
+        <div>
+        <div class='date'>
+            <h3>Datum: {{ pdfdata.datum_von }}</h3>
+        </div>
+        <hr class='hrItem' />
+        <div class='details'>
+            <table>
+                <tr>
+                    <td>
+                        <h1>Abgeber:</h1>
+                        <p>
+                        {{ pdfdata.id_abgeber.vorname }} {{ pdfdata.id_abgeber.nachname }}<br>
+                        {{ pdfdata.id_abgeber.straße }} {{ pdfdata.id_abgeber.hausnr }}<br>
+                        {{ pdfdata.id_abgeber.plz }} {{ pdfdata.id_abgeber.stadt }}<br>
+                        </p>
+                    </td>
+                    <td>
+                        <h1>Aufnehmer:</h1>
+                        <p>
+                        {{ pdfdata.id_aufnehmer.vorname }} {{ pdfdata.id_aufnehmer.nachname }}<br>
+                        {{ pdfdata.id_aufnehmer.straße }} {{ pdfdata.id_aufnehmer.hausnr }}<br>
+                        {{ pdfdata.id_aufnehmer.plz }} {{ pdfdata.id_aufnehmer.stadt }}<br>
+                        </p>
+                    </td>
+                </tr>
+            </table>    
+            
+        </div>
+        <hr class='hrItem' />
+        <!--<h4>Beförderer: {{ pdfdata.id_beförderer.vorname }} {{ pdfdata.id_beförderer.nachname }}, {{ pdfdata.id_beförderer.straße }} {{ pdfdata.id_beförderer.hausnr }}, {{ pdfdata.id_beförderer.plz }} {{ pdfdata.id_beförderer.stadt }} </h4>-->
+        
+        <div class='details'>
+            <table>
+                <tr>
+                    <td>
+                        <h1>Beförderer:</h1>
+                        <p>
+                        {{ pdfdata.id_beförderer.vorname }} {{ pdfdata.id_beförderer.nachname }}<br>
+                        {{ pdfdata.id_beförderer.straße }} {{ pdfdata.id_beförderer.hausnr }}<br>
+                        {{ pdfdata.id_beförderer.plz }} {{ pdfdata.id_beförderer.stadt }}<br>
+                        </p>
+                    </td>
+                    <td>
+                        <h6>Deklaration: {{ pdfdata.id_produkt.art }}<br>
+                            Untersuchung vom: {{ pdfdata.id_produkt.datum_untersuchung }}</h6>
+                            in kg/{{ pdfdata.id_produkt.bezugsgröße }}:<br>
+                            N: {{ pdfdata.id_produkt.n }} | NH4: {{ pdfdata.id_produkt.nh4|floatformat:-1 }} | P: {{ pdfdata.id_produkt.p }} | K: {{ pdfdata.id_produkt.k }} | TS: {{ pdfdata.id_produkt.ts }}
+
+                        </p>
+
+                        
+                    </td>
+                </tr>
+            </table>    
+            
+        </div>
+        
+        <!--<div class='details'>
+            <h6>Deklaration: {{ pdfdata.id_produkt.art }}<br>
+            Untersuchung vom: {{ pdfdata.id_produkt.datum_untersuchung }}</h6>
+            in kg/{{ pdfdata.id_produkt.bezugsgröße }}:<br>
+            N: {{ pdfdata.id_produkt.n }} / NH4: {{ pdfdata.id_produkt.nh4 }} / P: {{ pdfdata.id_produkt.p }} / K: {{ pdfdata.id_produkt.k }} / TS: {{ pdfdata.id_produkt.ts }}
+            <hr class='hrItem' />
+        </div>
+    -->
+
+            
+
+    
+        <div class='details'>
+            <hr class='hrItem' />  
+    <table>
+        <tr>
+            <td><h1>Menge und Nährstoffgehalte:</h1></td>
+            <td></td>
+        </tr>
+    </table>
+            <table>
+                <tr>
+                    
+                    <td>
+                        <div class="menge">
+                        {{ pdfdata.menge }} {{ pdfdata.id_produkt.bezugsgröße }}<span style="color: rgb(110, 110, 110);"> {{ pdfdata.id_produkt.art }}</span>
+                        </div>
+                        </td>
+                    </td>
+                    <td>
+                        <div class="ges_npk">
+                              {{ npk_gesamt.n }} kg<span style="color: rgb(110, 110, 110);"> N-Gesamt</span> <br>
+                              {{ npk_gesamt.p }} kg<span style="color: rgb(110, 110, 110);"> P2O5</span> <br>
+                              {{ npk_gesamt.k }} kg<span style="color: rgb(110, 110, 110);"> K2O</span><br>
+
+                        </div>
+                        
+                    </td>
+                </tr>
+            </table>    
+
+        </div>
+        <hr class='hrItem' />
+
+        <div class="footer">
+            Erstellt mit GAPP - Peter Scheuenstuhl
+
+        </div>
+    </div>
+    
+
+    </body>
+</html>

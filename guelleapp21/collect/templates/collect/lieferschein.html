@@ -1,0 +1,351 @@
+{% extends 'collect/base.html' %}
+
+{% block content %}
+<!-- Breadcomb area Start-->
+<div class="breadcomb-area">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+					<div class="breadcomb-list">
+						<div class="row">
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+								<div class="breadcomb-wp">
+									<div class="breadcomb-icon">
+										<i class="notika-icon notika-form"></i>
+									</div>
+									<div class="breadcomb-ctn">
+										<h2>Gülle Lieferung, Transport</h2>
+										<p>Eingabe des Lieferscheines</p>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Breadcomb area End-->
+    <!-- Form Element area Start-->
+ <!-- Datepicker area Start-->
+ <form method="POST" class="post-form">{% csrf_token %}
+
+
+
+ <div class="datepicker-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="datepicker-int mg-t-30">
+                        <div class="cmp-tb-hd">
+                            <h2>Zeitraum</h2>
+                            <p>Bitte Transport- bzw. Lieferdatum angeben</p>
+                            
+
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group nk-datapk-ctm form-elet-mg" id="data_1">
+                                    <label> Liefer-/Transportdatum:</label>
+                                    <div class="input-group date nk-int-st">
+                                        <span class="input-group-addon"></span>
+                                       <!-- <input type="text" class="form-control" value="03/19/2018">--> <!-- HIER ALS VALUE DAS AKTUELLE DATUM ALS STANDART -->
+                                       {{lieferform.datum_von.errors}}
+                                       {{lieferform.datum_von}}
+                                       {{lieferform.datum_von.help_text}}
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Datepicker area End-->
+
+<div class="form-element-area">
+         <div class="container-fluid">
+    <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list mg-t-30">
+                    <div class="cmp-tb-hd">
+                        <h2></h2>
+                        <p></p>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Abgeber</h2>
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                                <!--<select class="selectpicker" data-live-search="true">
+                                        <option>Drama</option>
+                                        <option>Cariska</option>
+                                        <option>Cheriska</option>
+                                        <option>Malias</option>
+                                        <option>Kamines</option>
+                                        <option>Austranas</option>
+                                    </select>
+                                -->
+                                {{lieferform.id_abgeber}}
+                            </div>
+                        </div> 
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Empfänger</h2>
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                               <!-- <select class="selectpicker" data-live-search="true">
+                                        <option>Drama</option>
+                                        <option>Cariska</option>
+                                        <option>Cheriska</option>
+                                        <option>Malias</option>
+                                        <option>Kamines</option>
+                                        <option>Austranas</option>
+                                    </select>
+                                -->
+                                    {{lieferform.id_aufnehmer}}
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Beförderer</h2>
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                                <!--<select class="selectpicker" data-live-search="true">
+                                        <option>Drama</option>
+                                        <option>Cariska</option>
+                                        <option>Cheriska</option>
+                                        <option>Malias</option>
+                                        <option>Kamines</option>
+                                        <option>Austranas</option>
+                                    </select>
+                                -->
+                                    {{lieferform.id_beförderer}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="form-element-list mg-t-30">
+                    <div class="cmp-tb-hd">
+                        <h2></h2>
+                        <p></p>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Fahrer</h2>
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                                <!--<select class="selectpicker" data-live-search="true">
+                                        <option>Drama</option>
+                                        <option>Cariska</option>
+                                        <option>Cheriska</option>
+                                        <option>Malias</option>
+                                        <option>Kamines</option>
+                                        <option>Austranas</option>
+                                    </select>
+                                -->
+                                    {{lieferform.id_fahrer}}
+
+
+                                <!--    <select name="{{ lieferform.id_fahrer.name }}">
+                                            {% for choice in lieferform.id_fahrer.field.choices %}
+                                                <option vol="{{ choice.2.1 }}" value="{{ choice.0 }}">{{ choice.1 }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    -->
+                            </div>
+                        </div> 
+                        
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                            <div class="nk-int-mk sl-dp-mn sm-res-mg-t-10">
+                                <h2>Fahrzeug</h2>
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                                <!--<select class="selectpicker" data-live-search="true">
+                                        <option>Drama</option>
+                                        <option>Cariska</option>
+                                        <option>Cheriska</option>
+                                        <option>Malias</option>
+                                        <option>Kamines</option>
+                                        <option>Austranas</option>
+                                        
+                                    </select>
+                                -->
+                                {{lieferform.id_fahrzeug}}
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="form-element-list mg-t-30">
+            <div class="cmp-tb-hd">
+                <h2>Art - Menge</h2>
+                <p>Bitte die Gülleart und Menge angeben </p>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                            <div class="form-ic-cmp">
+                                Art:
+                            </div>
+                            <div class="bootstrap-select fm-cmp-mg">
+                               <!-- <select class="selectpicker" data-live-search="true">
+                                    <option>Drama</option>
+                                    <option>Cariska</option>
+                                    <option>Cheriska</option>
+                                    <option>Malias</option>
+                                    <option>Kamines</option>
+                                    <option>Austranas</option>
+                                </select>
+                                -->
+                                {{lieferform.id_produkt}}
+                            </div>
+                        </div>
+                    </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <div class="form-group ic-cmp-int float-lb floating-lb">
+                        <div class="form-ic-cmp">
+                            <button type="button" id="count_minus" class="btn btn-danger"> - </button>
+                        </div>
+
+                            <div class="nk-int-st">
+                                <input type="text" value="1" id="vol_count" class="form-control"> 
+                            </div>                            
+
+                            <div class="form-ic-cmp">
+                                <button type="button" id="count_plus" class="btn btn-success"> + </button>
+                            </div>
+                            <div class="form-ic-cmp">
+                                <div id="volumen">0000</div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <div class="form-group ic-cmp-int float-lb floating-lb">
+                            <div class="form-ic-cmp">
+                                m3/to
+                            </div>
+                            <div class="nk-int-st">
+                                <!--<input type="text" class="form-control">-->
+                                {{lieferform.menge}}
+                                
+                            </div>
+                        </div>
+                    </div>
+            <div class="col-lg-8 col-md-7 col-sm-7 col-xs-12">
+                
+                <button type="submit" class="btn btn-success notika-btn-success waves-effect">Lieferschein speichern</button>
+            </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</form>
+<script type="text/javascript">
+    $(document).ready(function(){
+        volumen = 0;
+        $("select[name=id_fahrzeug]").change(function(){
+            var id_fahrzeug = $(this).children("option:selected").val();
+                        
+            $.ajax(
+            {
+                type:"GET",
+                url: "/ajax/liefer_form_data/"+id_fahrzeug,
+                data:{
+                        
+                },
+                success: function( data ) 
+                {
+                    console.log(data[0].volumen)
+                    volumen = data[0].volumen;
+
+                    $( '#volumen' ).html("x"+(data[0].volumen));
+                }
+            });
+
+        });
+        $('#count_plus').click(function(){
+            var count = $('#vol_count').val();
+            console.log("vol_plus");
+            console.log(count);
+            menge = parseInt(count) + 1;
+            console.log(menge);
+            $( '#vol_count' ).val(menge);
+            $('#vol_count').change();
+
+       
+
+        });
+        $('#count_minus').click(function(){
+            var count = $('#vol_count').val();
+            console.log("vol_plus");
+            console.log(count);
+            menge = parseInt(count) - 1;
+            console.log(menge);
+            $( '#vol_count' ).val(menge);
+            $('#vol_count').change();
+
+        });
+
+
+
+        $('#vol_count').change(function(){
+            var count = $('#vol_count').val();
+            console.log("change");
+            console.log(count);
+            console.log(volumen);
+            menge = volumen * count;
+            console.log(menge);
+            $( '#id_menge' ).val(menge);
+       
+
+        });
+    });
+
+
+</script>
+
+    <!--
+    <script type="text/javascript">
+
+        var catid;
+        catid = $(this).attr("data-catid");
+        $.ajax(
+        {
+            type:"GET",
+            url: "/likepost",
+            data:{
+                     post_id: catid
+            },
+            success: function( data ) 
+            {
+                $( '#like'+ catid ).remove();
+                $( '#message' ).text(data);
+            }
+         });
+
+    </script>
+-->
+{% endblock %}
