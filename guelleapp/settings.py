@@ -25,7 +25,7 @@ SECRET_KEY = '5ok3a=*l-suopk=(+un3u$sf$sp3=b=s4*3wv(_8+5)5$#!pr%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
     'collect',
 ]
 
@@ -118,7 +119,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/gapp/static/'
-STATIC_ROOT = '/usr/local/lsws/Example/gapp/public/static'
+#STATIC_URL = '/static/'
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-# BOOTSTRAP3 = { 'theme_url': '/static/bootstrap/css/bootstrap.css', }
+STATIC_URL = '/static/'
+STATIC_ROOT = '/usr/local/lsws/Example/guelleapp/public/static'
+
+#BOOTSTRAP3 = { 'theme_url': '/static/bootstrap/css/bootstrap.css', }
